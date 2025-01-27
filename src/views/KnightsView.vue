@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div style="max-width: 1200px; margin: 0 auto;">
     <div class="header">
       <h1>Lista de Cavaleiros</h1>
       <div class="filter-group">
@@ -11,7 +11,7 @@
       </div>
     </div>
     <BaseButton variant="primary" @click="showModal()" style="margin: 1rem 0 1rem 0;">Criar Cavaleiro</BaseButton>
-    <KnightsTable :knights="knights" @edit="editKnight" @markAsHero="markAsHero" />
+    <KnightsList :knights="knights" @edit="editKnight" @markAsHero="markAsHero" />
     <KnightModal v-if="isModalVisible" :visible="isModalVisible" :knight="currentKnight" @save="saveKnight"
       @close="closeModal" />
   </div>
@@ -20,12 +20,12 @@
 <script lang="ts">
 import { defineComponent, reactive, ref, onMounted } from 'vue';
 import api from '../services/api';
-import KnightsTable from '@/components/KnightsTable.vue';
 import KnightModal from '@/components/KnightModal.vue';
 import BaseButton from '@/components/BaseButton.vue';
+import KnightsList from '@/components/KnightsList.vue';
 
 export default defineComponent({
-  components: { KnightsTable, KnightModal, BaseButton },
+  components: { KnightsList, KnightModal, BaseButton },
   setup() {
     const knights = ref([]);
     const isModalVisible = ref(false);
@@ -70,6 +70,7 @@ export default defineComponent({
         name: '',
         nickname: '',
         birthday: '',
+        isHero: false,
         weapons: [
           {
             name: '',
