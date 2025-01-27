@@ -2,9 +2,9 @@
   <div>
     <div class="cards-container">
       <div v-for="knight in knights" :key="knight._id" class="card">
-        <img @click="editKnight(knight)" :src="knight.isHero ? './hero.png' : './knight.png'" alt="Knight or Hero"
+        <img @click="showDetails(knight)" :src="knight.isHero ? './hero.png' : './knight.png'" alt="Knight or Hero"
           class="card-image" />
-        <div class="card-content" @click="editKnight(knight)">
+        <div class="card-content" @click="showDetails(knight)">
           <h3>{{ knight.name }}</h3>
           <p><strong>Apelido:</strong> {{ knight.nickname }}</p>
           <p><strong>Experiência:</strong> {{ knight.exp }}</p>
@@ -77,10 +77,6 @@ export default defineComponent({
       selectedKnight.value = {}; // Reseta para um objeto vazio
     };
 
-    const editKnight = (knight: Knight) => {
-      showDetails(knight);
-    };
-
     const markAsHero = (id: string) => {
       const knight = props.knights.find((k) => k._id === id);
       if (knight) {
@@ -93,7 +89,6 @@ export default defineComponent({
       selectedKnight,
       showDetails,
       closeDetailModal,
-      editKnight,
       markAsHero
     };
   },
