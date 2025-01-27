@@ -154,6 +154,8 @@ export default defineComponent({
 .header {
   display: flex;
   justify-content: space-between;
+  flex-wrap: wrap;
+  height: 150px;
   align-items: center;
   margin-bottom: 1rem;
 }
