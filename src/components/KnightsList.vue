@@ -11,7 +11,7 @@
         </div>
         <div class="card-actions">
           <BaseButton variant="primary" @click="$emit('edit', knight)">Editar</BaseButton>
-          <BaseButton variant="danger" v-if="!knight.isHero" @click="markAsHero(knight._id)" style="max-width: 150px;">
+          <BaseButton variant="danger" v-if="!knight.isHero" @click="$emit('markAsHero', knight._id)" style="max-width: 150px;">
             Tornar Herói
           </BaseButton>
         </div>
@@ -77,19 +77,11 @@ export default defineComponent({
       selectedKnight.value = {}; // Reseta para um objeto vazio
     };
 
-    const markAsHero = (id: string) => {
-      const knight = props.knights.find((k) => k._id === id);
-      if (knight) {
-        knight.isHero = true; // Atualiza localmente
-      }
-    };
-
     return {
       isDetailModalVisible,
       selectedKnight,
       showDetails,
       closeDetailModal,
-      markAsHero
     };
   },
 });
