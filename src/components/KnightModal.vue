@@ -149,8 +149,14 @@ export default defineComponent({
   padding: 20px;
   border-radius: 8px;
   width: 400px;
-  height: 600px;
+  max-height: 600px;
   overflow: auto;
+}
+
+@media (min-width: 1024px) {
+    .modal-content {
+        width: 600px;
+    }
 }
 
 form {

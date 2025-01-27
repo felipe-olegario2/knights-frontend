@@ -1,5 +1,5 @@
 <template>
-  <div style="max-width: 1200px; margin: 0 auto;">
+  <div style="max-width: 1082 px; margin: 0 auto;">
     <div class="header">
       <h1>Lista de Cavaleiros</h1>
       <div class="filter-group">

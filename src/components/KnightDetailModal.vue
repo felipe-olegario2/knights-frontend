@@ -60,7 +60,7 @@ export default defineComponent({
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.5);
+    background: hsla(268, 100%, 74%, 0.356);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -75,6 +75,12 @@ export default defineComponent({
     max-height: 600px;
     color: white;
     overflow: auto;
+}
+
+@media (min-width: 1024px) {
+    .modal-content {
+        width: 600px;
+    }
 }
 
 strong {
